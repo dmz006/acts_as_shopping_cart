@@ -18,8 +18,8 @@ module ActiveRecord
         #
         def acts_as_shopping_cart_item_for(*)
           send :include, ActiveRecord::Acts::ShoppingCartItem::InstanceMethods
-          belongs_to :owner, polymorphic: true
-          belongs_to :item, polymorphic: true
+          belongs_to :owner, polymorphic: true, optional: true
+          belongs_to :item, polymorphic: true, optional: true
           monetize :price_cents
         end
 
